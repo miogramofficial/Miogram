@@ -1,4 +1,11 @@
-import Button from "@/components/ui/Button";
+import {
+  Button,
+  Input,
+  Badge,
+  Card,
+  Avatar,
+  IconButton,
+} from "@/components/ui";
 
 export default function UIPage() {
     return (
