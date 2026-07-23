@@ -13,24 +13,33 @@ export default function Input({
   ...props
 }: InputProps) {
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="flex w-full flex-col gap-2">
       {label && (
-        <label className="text-sm font-medium text-gray-700">
+        <label className="text-sm font-medium text-gray-300">
           {label}
         </label>
       )}
 
       <input
         className={cn(
-          "h-12 rounded-xl border border-gray-300 px-4",
-          "focus:outline-none focus:ring-2 focus:ring-blue-500",
+          "h-12 w-full rounded-xl",
+          "border border-zinc-700",
+          "bg-zinc-900/70",
+          "px-4",
+          "text-white",
+          "placeholder:text-zinc-500",
+          "transition-all duration-300",
+          "focus:border-violet-500",
+          "focus:ring-2",
+          "focus:ring-violet-500/30",
+          "focus:outline-none",
           className
         )}
         {...props}
       />
 
       {error && (
-        <span className="text-sm text-red-600">
+        <span className="text-sm text-red-400">
           {error}
         </span>
       )}

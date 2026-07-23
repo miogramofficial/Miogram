@@ -45,9 +45,17 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  background: var(--background);
-  color: var(--text-primary);
-  font-family: var(--font-geist-sans);
+  min-height: 100vh;
+  color: white;
+
+  background:
+    radial-gradient(circle at top,
+      rgba(126, 87, 255, 0.18),
+      transparent 35%),
+
+    radial-gradient(circle at bottom,
+      rgba(66, 40, 180, 0.14),
+      transparent 45%),
+
+    #090909;
 }

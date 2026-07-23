@@ -1,32 +1,24 @@
-import { Button, Input, Card } from "@/components/ui";
+import AuthLogo from "@/components/auth/AuthLogo";
+import AuthHeader from "@/components/auth/AuthHeader";
+import AuthCard from "@/components/auth/AuthCard";
+import LoginForm from "@/components/auth/LoginForm";
+import SocialLogin from "@/components/auth/SocialLogin";
 
 export default function LoginPage() {
   return (
-    <Card>
-      <h1 className="text-3xl font-bold mb-2">
-        Welcome Back
-      </h1>
+    <AuthCard>
+      <div className="space-y-7">
+        <AuthLogo />
 
-      <p className="text-gray-500 mb-8">
-        Sign in to continue your Miogram experience.
-      </p>
-
-      <div className="space-y-4">
-        <Input
-          type="email"
-          placeholder="Email"
+        <AuthHeader
+          title="Welcome Back"
+          subtitle="Sign in to continue your Miogram experience."
         />
 
-        <Input
-          type="password"
-          placeholder="Password"
-        />
+        <LoginForm />
 
-        <Button className="w-full">
-            Login
-        </Button>
+        <SocialLogin />
       </div>
-    </Card>
+    </AuthCard>
   );
 }
-

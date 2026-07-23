@@ -1,41 +1,24 @@
-import { Button, Input, Card } from "@/components/ui";
+import AuthLogo from "@/components/auth/AuthLogo";
+import AuthHeader from "@/components/auth/AuthHeader";
+import AuthCard from "@/components/auth/AuthCard";
+import RegisterForm from "@/components/auth/RegisterForm";
+import SocialLogin from "@/components/auth/SocialLogin";
 
 export default function RegisterPage() {
   return (
-    <Card>
-      <h1 className="text-3xl font-bold mb-2">
-        Create Account
-      </h1>
+    <AuthCard>
+      <div className="space-y-8">
+        <AuthLogo />
 
-      <p className="text-gray-500 mb-8">
-        Join Miogram and start sharing immersive experiences.
-      </p>
-
-      <div className="space-y-4">
-        <Input
-          type="text"
-          placeholder="Full Name"
+        <AuthHeader
+          title="Create your account"
+          subtitle="Start experiencing moments with Miogram."
         />
 
-        <Input
-          type="email"
-          placeholder="Email"
-        />
+        <RegisterForm />
 
-        <Input
-          type="password"
-          placeholder="Password"
-        />
-
-        <Input
-          type="password"
-          placeholder="Confirm Password"
-        />
-
-        <Button className="w-full">
-          Create Account
-        </Button>
+        <SocialLogin />
       </div>
-    </Card>
+    </AuthCard>
   );
 }
