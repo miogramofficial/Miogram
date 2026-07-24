@@ -1,5 +1,6 @@
 import { Button, Input } from "@/components/ui";
 import PasswordInput from "@/components/auth/PasswordInput";
+import { User, Mail } from "lucide-react";
 
 export default function RegisterForm() {
   return (
@@ -7,12 +8,14 @@ export default function RegisterForm() {
       <Input
         type="text"
         placeholder="Full Name"
-      />
+        leftIcon={User}
+        />
 
       <Input
         type="email"
         placeholder="Email"
-      />
+        leftIcon={Mail}
+        />
 
       <PasswordInput
         placeholder="Password"

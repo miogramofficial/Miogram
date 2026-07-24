@@ -8,13 +8,13 @@ export default function AuthHeader({
   subtitle,
 }: AuthHeaderProps) {
   return (
-    <div className="text-center space-y-2">
+    <div className="pb-8 text-center">
       <h1 className="text-4xl font-bold tracking-tight text-white">
         {title}
       </h1>
 
       {subtitle && (
-        <p className="text-base text-gray-400">
+        <p className="mt-3 text-base leading-7 text-zinc-400">
           {subtitle}
         </p>
       )}

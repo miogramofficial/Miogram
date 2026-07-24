@@ -23,8 +23,8 @@ export default function Button({
   disabled,
   ...props
 }: ButtonProps) {
-  const baseStyle =
-    "h-12 px-5 rounded-full font-semibold transition-all duration-300 focus:outline-none active:scale-[0.98]";
+    const baseStyle =
+    "inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-200 focus:outline-none";
 
   const variants = {
     primary:
@@ -45,15 +45,22 @@ export default function Button({
 
   return (
     <button
-      className={cn(
-        baseStyle,
-        variants[variant],
-        fullWidth && "w-full",
-        (disabled || loading) && "opacity-50 cursor-not-allowed",
-        className
-      )}
-      disabled={disabled || loading}
-      {...props}
+        className={cn(
+    "inline-flex items-center justify-center",
+    "h-14 w-full",
+    "rounded-full",
+    "bg-blue-600",
+    "text-white",
+    "font-semibold",
+    "text-base",
+    "transition-all duration-300",
+    "hover:bg-blue-500",
+    "hover:scale-[1.02]",
+    "active:scale-[0.98]",
+    "shadow-lg shadow-blue-700/30",
+    "disabled:opacity-50 disabled:pointer-events-none",
+    className
+    )}
     >
       {loading ? "Loading..." : children}
     </button>

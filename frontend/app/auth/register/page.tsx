@@ -6,19 +6,19 @@ import SocialLogin from "@/components/auth/SocialLogin";
 
 export default function RegisterPage() {
   return (
-    <AuthCard>
-      <div className="space-y-8">
+    <main className="flex min-h-screen items-center justify-center px-6 py-10">
+      <AuthCard>
         <AuthLogo />
 
         <AuthHeader
           title="Create your account"
-          subtitle="Start experiencing moments with Miogram."
+          subtitle="Start your immersive journey."
         />
 
         <RegisterForm />
 
         <SocialLogin />
-      </div>
-    </AuthCard>
+      </AuthCard>
+    </main>
   );
 }

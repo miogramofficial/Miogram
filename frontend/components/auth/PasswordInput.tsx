@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
+import { Lock } from "lucide-react";
 import { Input } from "@/components/ui";
 
 type PasswordInputProps = {
@@ -17,6 +19,7 @@ export default function PasswordInput({
       <Input
         type={showPassword ? "text" : "password"}
         placeholder={placeholder}
+        leftIcon={Lock}
         className="pr-12"
       />
 
@@ -31,17 +34,18 @@ export default function PasswordInput({
           flex
           items-center
           justify-center
-          transition-transform
-          duration-200
           hover:scale-110
+          transition-all
+          duration-200
         "
         aria-label={showPassword ? "Hide password" : "Show password"}
       >
-        <img
+        <Image
           src={showPassword ? "/eye-open.svg" : "/eye-closed.svg"}
-          alt={showPassword ? "Hide password" : "Show password"}
+          alt="Password visibility"
           width={20}
           height={20}
+          priority
         />
       </button>
     </div>

@@ -1,5 +1,6 @@
 import { Button, Input } from "@/components/ui";
 import PasswordInput from "@/components/auth/PasswordInput";
+import { Mail } from "lucide-react";
 
 export default function LoginForm() {
   return (
@@ -7,33 +8,27 @@ export default function LoginForm() {
       <Input
         type="email"
         placeholder="Email"
+        leftIcon={Mail}
       />
 
-       <PasswordInput/>
-
-       {/* <div>Password Input Test</div> */}
+      <PasswordInput />
 
       <div className="flex justify-end">
-        <Button
-        className="
-            w-full
-            rounded-full
-            bg-blue-600
-            hover:bg-blue-500
-            transition-all
-            duration-300
-            hover:scale-[1.02]
-            active:scale-[0.98]
-            shadow-lg
-            shadow-blue-700/30
-        "
+        <button
+          className="
+            text-sm
+            text-violet-400
+            hover:text-violet-300
+            transition-colors
+            hover:underline
+          "
         >
-        Continue
-        </Button>
+          Forgot Password?
+        </button>
       </div>
 
-      <Button className="w-full">
-        Continue
+      <Button fullWidth>
+        Sign In
       </Button>
     </div>
   );

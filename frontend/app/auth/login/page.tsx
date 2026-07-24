@@ -6,19 +6,19 @@ import SocialLogin from "@/components/auth/SocialLogin";
 
 export default function LoginPage() {
   return (
-    <AuthCard>
-      <div className="space-y-7">
+    <main className="flex min-h-screen items-center justify-center px-6 py-10">
+      <AuthCard>
         <AuthLogo />
 
         <AuthHeader
           title="Welcome Back"
-          subtitle="Sign in to continue your Miogram experience."
+          subtitle="Sign in to continue your journey."
         />
 
         <LoginForm />
 
         <SocialLogin />
-      </div>
-    </AuthCard>
+      </AuthCard>
+    </main>
   );
 }

@@ -46,16 +46,18 @@
 html,
 body {
   min-height: 100vh;
-  color: white;
+  color: var(--text-primary);
 
   background:
-    radial-gradient(circle at top,
-      rgba(126, 87, 255, 0.18),
-      transparent 35%),
-
-    radial-gradient(circle at bottom,
-      rgba(66, 40, 180, 0.14),
-      transparent 45%),
-
-    #090909;
+    radial-gradient(
+      circle at top,
+      rgba(124, 58, 237, 0.16),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at bottom,
+      rgba(91, 33, 182, 0.12),
+      transparent 40%
+    ),
+    #050505;
 }
