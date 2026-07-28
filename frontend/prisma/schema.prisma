@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+
+  profile   Profile?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Profile {
+  id          String @id @default(cuid())
+
+  userId      String @unique
+  user        User   @relation(fields: [userId], references: [id])
+
+  username    String @unique
+  displayName String
+
+  bio         String?
+
+  avatar      String?
+
+  country     String?
+
+  dob         DateTime?
+
+  verified    Boolean @default(false)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
