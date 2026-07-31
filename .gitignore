@@ -1,0 +1,44 @@
+# ==========================
+# Dependencies
+# ==========================
+frontend/node_modules/
+backend/node_modules/
+
+# ==========================
+# Build Output
+# ==========================
+frontend/.next/
+frontend/out/
+backend/dist/
+
+# ==========================
+# Environment Variables
+# ==========================
+frontend/.env
+frontend/.env.local
+backend/.env
+backend/.env.local
+
+# ==========================
+# Prisma Generated Files
+# ==========================
+frontend/generated/
+frontend/prisma/generated/
+backend/generated/
+
+# ==========================
+# Logs
+# ==========================
+*.log
+npm-debug.log*
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# VS Code
+# ==========================
+.vscode/
