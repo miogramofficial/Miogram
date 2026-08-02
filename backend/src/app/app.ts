@@ -24,10 +24,10 @@ app.use(morgan("dev"));
 app.use("/api/v1", routes);
 
 import { notFoundHandler } from "../middleware/notFound.middleware";
-import { errorHandler } from "../middleware/error.middleware";
+import { errorMiddleware } from "../middleware/error.middleware";
 
 app.use(notFoundHandler);
 
-app.use(errorHandler);
+app.use(errorMiddleware);
 
 export default app;
