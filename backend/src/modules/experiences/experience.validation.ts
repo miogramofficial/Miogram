@@ -1,0 +1,26 @@
+import { z } from "zod";
+
+export const createExperienceSchema = z.object({
+  title: z
+    .string()
+    .min(3)
+    .max(100),
+
+  description: z
+    .string()
+    .min(10)
+    .max(1000),
+
+  location: z
+    .string()
+    .optional(),
+
+  mediaUrl: z
+    .string()
+    .url(),
+
+  mediaType: z.enum([
+    "image",
+    "video",
+  ]),
+});

@@ -4,6 +4,8 @@ import authRoutes from "../modules/auth/auth.routes";
 
 import profileRoutes from "../modules/profiles/profile.routes";
 
+import experienceRoutes from "../modules/experiences/experience.routes";
+
 const router = Router();
 
 router.get("/", (_req, res) => {
@@ -27,5 +29,7 @@ router.get("/health", (_req, res) => {
 router.use("/auth", authRoutes);
 
 router.use("/profile", profileRoutes);
+
+router.use("/experiences", experienceRoutes);
 
 export default router;
