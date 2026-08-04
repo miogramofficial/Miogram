@@ -112,6 +112,37 @@ export class ExperienceService {
 
     return updatedExperience;
   }
+
+  async deleteExperience(
+    id: string,
+    userId: string
+  ) {
+    const experience = await prisma.experience.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!experience) {
+      throw new Error("Experience not found");
+    }
+
+    if (experience.authorId !== userId) {
+      throw new Error(
+        "You are not allowed to delete this experience"
+      );
+    }
+
+    await prisma.experience.delete({
+      where: {
+        id,
+      },
+    });
+
+    return {
+      message: "Experience deleted successfully",
+    };
+  }
 }
 
 export const experienceService = new ExperienceService();

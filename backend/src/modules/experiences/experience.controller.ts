@@ -73,6 +73,26 @@ export class ExperienceController {
       data: experience,
     });
   }
+
+  async deleteExperience(
+    req: AuthRequest & {
+      params: {
+        id: string;
+      };
+    },
+    res: Response
+  ) {
+    const result =
+      await experienceService.deleteExperience(
+        req.params.id,
+        req.user!.userId
+      );
+
+    return res.status(200).json({
+      success: true,
+      message: result.message,
+    });
+  }
 }
 
 export const experienceController =

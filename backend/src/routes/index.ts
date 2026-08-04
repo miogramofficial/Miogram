@@ -6,6 +6,8 @@ import profileRoutes from "../modules/profiles/profile.routes";
 
 import experienceRoutes from "../modules/experiences/experience.routes";
 
+import enterRoutes from "../modules/enters/enter.routes";
+
 const router = Router();
 
 router.get("/", (_req, res) => {
@@ -31,5 +33,7 @@ router.use("/auth", authRoutes);
 router.use("/profile", profileRoutes);
 
 router.use("/experiences", experienceRoutes);
+
+router.use("/experiences", enterRoutes);
 
 export default router;

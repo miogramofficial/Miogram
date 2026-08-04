@@ -45,4 +45,19 @@ router.patch(
     )
 );
 
+// Delete experience
+router.delete(
+  "/:id",
+  authMiddleware,
+  (req, res) =>
+    experienceController.deleteExperience(
+      req as AuthRequest & {
+        params: {
+          id: string;
+        };
+      },
+      res
+    )
+);
+
 export default router;
