@@ -12,6 +12,8 @@ import likeRoutes from "../modules/likes/like.routes";
 
 import commentRoutes from "../modules/comments/comment.routes";
 
+import followRoutes from "../modules/follows/follow.routes";
+
 const router = Router();
 
 router.get("/", (_req, res) => {
@@ -35,6 +37,8 @@ router.get("/health", (_req, res) => {
 router.use("/auth", authRoutes);
 
 router.use("/profile", profileRoutes);
+
+router.use("/users", followRoutes);
 
 router.use("/experiences", experienceRoutes);
 
