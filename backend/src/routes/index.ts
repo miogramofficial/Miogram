@@ -10,6 +10,8 @@ import enterRoutes from "../modules/enters/enter.routes";
 
 import likeRoutes from "../modules/likes/like.routes";
 
+import commentRoutes from "../modules/comments/comment.routes";
+
 const router = Router();
 
 router.get("/", (_req, res) => {
@@ -39,5 +41,7 @@ router.use("/experiences", experienceRoutes);
 router.use("/experiences", enterRoutes);
 
 router.use("/experiences", likeRoutes);
+
+router.use("/", commentRoutes);
 
 export default router;

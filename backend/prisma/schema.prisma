@@ -23,6 +23,7 @@ model User {
   experiences Experience[]
   enters      ExperienceEnter[]
   likes       ExperienceLike[]
+  comments    Comment[]
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -49,6 +50,7 @@ model Experience {
 
   enters          ExperienceEnter[]
   likes           ExperienceLike[]
+  comments        Comment[]
 
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
@@ -80,4 +82,19 @@ model ExperienceLike {
   createdAt     DateTime    @default(now())
 
   @@unique([userId, experienceId])
+}
+
+model Comment {
+  id            String      @id @default(cuid())
+
+  content       String
+
+  userId        String
+  experienceId  String
+
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  experience    Experience  @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 }
