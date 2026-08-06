@@ -1,5 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
+import { notificationService } from "../notifications/notification.service";
+
 const prisma = new PrismaClient();
 
 export class LikeService {
@@ -50,6 +52,24 @@ export class LikeService {
         },
       },
     });
+
+    const liker = await prisma.user.findUnique({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (
+      liker &&
+      experience.authorId !== userId
+    ) {
+      await notificationService.createNotification({
+        userId: experience.authorId,
+        type: "LIKE",
+        title: "New Like",
+        message: `${liker.fullName} liked your experience.`,
+      });
+    }
 
     return {
       alreadyLiked: false,

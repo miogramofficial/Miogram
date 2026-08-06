@@ -1,5 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
+import { notificationService } from "../notifications/notification.service";
+
 const prisma = new PrismaClient();
 
 export class FollowService {
@@ -35,14 +37,29 @@ export class FollowService {
     }
 
     const follow = await prisma.follow.create({
-      data: {
+    data: {
         followerId,
         followingId,
-      },
+    },
     });
 
-    return follow;
-  }
+    const follower = await prisma.user.findUnique({
+    where: {
+        id: followerId,
+    },
+    });
+
+    if (follower) {
+    await notificationService.createNotification({
+        userId: followingId,
+        type: "FOLLOW",
+        title: "New Follower",
+        message: `${follower.fullName} started following you.`,
+    });
+    }
+
+        return follow;
+    }
 
   async unfollowUser(
     followerId: string,

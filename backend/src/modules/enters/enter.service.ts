@@ -1,5 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
+import { notificationService } from "../notifications/notification.service";
+
 const prisma = new PrismaClient();
 
 export class EnterService {
@@ -50,6 +52,24 @@ export class EnterService {
         },
       },
     });
+
+    const user = await prisma.user.findUnique({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (
+      user &&
+      experience.authorId !== userId
+    ) {
+      await notificationService.createNotification({
+        userId: experience.authorId,
+        type: "ENTER",
+        title: "New Experience Enter",
+        message: `${user.fullName} entered your experience.`,
+      });
+    }
 
     return {
       message: "Entered experience successfully",

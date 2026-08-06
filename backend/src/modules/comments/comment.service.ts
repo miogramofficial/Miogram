@@ -5,6 +5,8 @@ import {
   UpdateCommentInput,
 } from "./comment.types";
 
+import { notificationService } from "../notifications/notification.service";
+
 const prisma = new PrismaClient();
 
 export class CommentService {
@@ -53,6 +55,24 @@ export class CommentService {
         },
       },
     });
+
+    const commenter = await prisma.user.findUnique({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (
+      commenter &&
+      experience.authorId !== userId
+    ) {
+      await notificationService.createNotification({
+        userId: experience.authorId,
+        type: "COMMENT",
+        title: "New Comment",
+        message: `${commenter.fullName} commented on your experience.`,
+      });
+    }
 
     return comment;
   }

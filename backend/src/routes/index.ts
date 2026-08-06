@@ -14,6 +14,8 @@ import commentRoutes from "../modules/comments/comment.routes";
 
 import followRoutes from "../modules/follows/follow.routes";
 
+import notificationRoutes from "../modules/notifications/notification.routes";
+
 const router = Router();
 
 router.get("/", (_req, res) => {
@@ -39,6 +41,8 @@ router.use("/auth", authRoutes);
 router.use("/profile", profileRoutes);
 
 router.use("/users", followRoutes);
+
+router.use("/notifications", notificationRoutes);
 
 router.use("/experiences", experienceRoutes);
 
